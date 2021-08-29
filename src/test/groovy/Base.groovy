@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeClass
 
 class Base {
     @BeforeClass
-    public static void restAssuredStartup(){
+   public static void restAssuredStartup(){
 
         RestAssured.baseURI = "http://qa-library-dev.herokuapp.com/"
         RestAssured.basePath = "/api/"

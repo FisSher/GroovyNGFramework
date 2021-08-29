@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.*
 class Books extends Base {
 
     @Test
-    void testGetBook() {
+    void "Get Book"() {
         Response response = get("/books")
 
         ArrayList<String> allBooks = response.path("data.title")
@@ -16,7 +16,7 @@ class Books extends Base {
     }
 
     @Test
-    void validateBookSchema() {
+    void "Validate Book Schema"() {
         get("/books")
                 .then()
                 .assertThat()
@@ -24,7 +24,7 @@ class Books extends Base {
     }
 
     @Test
-    void createAndDeleteBook() {
+    void "Create And Delete Book"() {
         File bookFile = new File(getClass().getResource("/book.json").toURI())
         Response createResponse =
                 given()
@@ -48,7 +48,7 @@ class Books extends Base {
     }
 
     @Test
-    void deleteNonExistentBook() {
+    void "Delete NonExistent Book"() {
         String nonExistentBook = "9512"
         Response deleteResponse =
                 given()
